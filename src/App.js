@@ -2,28 +2,35 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import { Container } from 'react-bootstrap';
 
+const styleBg = {
+	backgroundImage: 'url(../images/bg.jpeg)', 
+	backgroundPosition: 'center center', 
+	backgroundSize: 'cover'
+}
+
 let styles = {
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center',
-  fontSize: 'calc(10px + 2vmin)',
-  color: 'black'
+  justifyContent: 'start',
+  fontSize: 'calc(2em + 2vmin)',
+  color: 'white',
+  paddingTop: 'calc(5em + 2vmin)'
 }
 
 function App() {
 	return (
-		<div>
+		<>
 			<Navbar />
-			<main>
+			<main style={ styleBg }>
 				<Container>
 						<Container>
-				      <h1 style={ styles }> Mi centro de Luz - CODEROUSE </h1>  
+				      		<h1 style={ styles }> Mi centro de Luz </h1>  
 						</Container>
 				</Container>
 			</main>
-		</div>
+		</>
 	);
 }
 
