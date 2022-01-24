@@ -1,5 +1,6 @@
 import React from "react";
 import { Navbar as BTNavbar, Container, Nav } from "react-bootstrap";
+import CartWidget from "./CartWidget";
 
 const Navbar = () => {
 	return (
@@ -17,10 +18,26 @@ const Navbar = () => {
 				<BTNavbar.Toggle aria-controls="basic-navbar-nav" />
 				<BTNavbar.Collapse id="basic-navbar-nav">
 					<Nav className="me-auto">
-						<Nav.Link href="#inicio" className="text-uppercase fs-5 fw-bolder">Inicio</Nav.Link>
-						<Nav.Link href="#tienda" className="text-uppercase fs-5 fw-bolder">Tienda</Nav.Link>
-						<Nav.Link href="#acerca" className="text-uppercase fs-5 fw-bolder">Acerca de Mi</Nav.Link>
+						<Nav.Link
+							href="#inicio"
+							className="text-uppercase fs-5 fw-bolder"
+						>
+							Inicio
+						</Nav.Link>
+						<Nav.Link
+							href="#tienda"
+							className="text-uppercase fs-5 fw-bolder"
+						>
+							Tienda
+						</Nav.Link>
+						<Nav.Link
+							href="#acerca"
+							className="text-uppercase fs-5 fw-bolder"
+						>
+							Acerca de Mi
+						</Nav.Link>
 					</Nav>
+					<CartWidget />
 				</BTNavbar.Collapse>
 			</Container>
 		</BTNavbar>
