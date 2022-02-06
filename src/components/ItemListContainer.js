@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Alert } from "react-bootstrap";
+import { Alert, Row } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 
@@ -72,10 +72,16 @@ const ItemListContainer = ({saludo}) => {
 	return (
 		<>
 			<Alert variant="light" className="mt-5 text-center">
-				<Alert.Heading>{saludo}</Alert.Heading>
-				<hr />
-				<ItemCount stock={availableStock} />
-				<ItemList productos={productos} />
+                <Row>
+				    <Alert.Heading>{saludo}</Alert.Heading>
+				    <hr />
+                </Row>
+                <Row>
+				    <ItemCount stock={availableStock} />
+                </Row>
+                <Row>
+				    <ItemList productos={productos} />
+                </Row>
 			</Alert>
 			<ItemList />
 		</>

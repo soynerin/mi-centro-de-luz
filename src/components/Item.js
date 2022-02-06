@@ -4,7 +4,7 @@ import { Card, Col, Button, Badge } from "react-bootstrap";
 const Item = ({ title, description, price, imageUrl, stock }) => {
 	return (
 		<Col>
-			<Card style={{ width: "auto" }}>
+			<Card className="shadow p-3 mb-5 bg-body rounded" style={{ width: "auto" }}>
 				<Card.Img variant="top" src={imageUrl} />
 				<Card.Body>
 					<Card.Title>{title}</Card.Title>
