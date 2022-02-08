@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
 import { Container, Row } from 'react-bootstrap';
-import ItemListContainer from "./components/ItemListContainer";
-import ItemDetailContainer from "./components/ItemDetailContainer";
+import ItemListContainer from "./components/products/list/ItemListContainer";
+import ItemDetailContainer from "./components/products/detail/ItemDetailContainer";
 
 const styleBg = {
 	backgroundImage: 'url(../images/bg.jpeg)', 
