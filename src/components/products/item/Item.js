@@ -2,13 +2,17 @@ import React from "react";
 import { Card, Col, Button, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const Item = ({ id, title, description, price, imageUrl, stock }) => {
+const Item = ({ id, title, description, price, imageUrl, stock, category }) => {
 	return (
 		<Col>
 			<Card className="shadow p-3 mb-5 bg-body rounded" style={{ width: "auto" }}>
 				<Card.Img variant="top" src={imageUrl} />
 				<Card.Body>
-					<Card.Title>{title}</Card.Title>
+					<Card.Title>
+						{title}
+						<br />
+						<Badge bg="primary" className="my-4">{category}</Badge>{' '}
+					</Card.Title>
 					<Card.Text>{description}</Card.Text>
                     <div className="d-flex justify-content-between align-items-center">
                         <Badge bg="info">$ {price}</Badge>{' '}

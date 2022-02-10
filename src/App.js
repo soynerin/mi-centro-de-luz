@@ -15,7 +15,7 @@ function App() {
 		<>
 			<Navbar />		
 			<Routes>
-				<Route path="/" element={<ItemListContainer styleBg={styleBg} />} ></Route>
+				<Route path="/" element={<ItemListContainer headerTitle={"Productos Destacados"} styleBg={styleBg} />} ></Route>
 				<Route path="category/:id" element={<ItemListContainer styleBg={styleBg} />}></Route>
 				<Route path="item/:id" element={<ItemDetailContainer />}></Route>
 			</Routes>

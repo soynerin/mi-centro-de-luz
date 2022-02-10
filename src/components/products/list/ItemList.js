@@ -14,6 +14,7 @@ const ItemList = ({ productos }) => {
 						price={p.price}
 						imageUrl={p.imageUrl}
 						stock={p.stock}
+						category={p.category.description}
 					/>
 				))}
 		</Row>
