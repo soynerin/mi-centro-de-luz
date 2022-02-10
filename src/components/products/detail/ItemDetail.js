@@ -24,7 +24,7 @@ const ItemDetail = ({ producto }) => {
 						<br />
 						<img
 							src={producto.imageUrl}
-							class="img-thumbnail rounded mx-auto d-block"
+							className="img-thumbnail rounded mx-auto d-block"
 							alt={producto.title}
 						/>
 					</Col>

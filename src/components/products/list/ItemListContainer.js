@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { Alert, Row } from "react-bootstrap";
-import ItemCount from "../../widgets/ItemCount";
+import { Container, Row } from "react-bootstrap";
 import ItemList from "./ItemList";
 
-const ItemListContainer = ({ saludo }) => {
-	const availableStock = 15;
+const ItemListContainer = ({ styleBg }) => {
 
 	const productosJson = [
 		{
@@ -52,6 +50,33 @@ const ItemListContainer = ({ saludo }) => {
 			imageUrl: "https://radiogamasi.com/wp-content/uploads/2017/07/img_not_available.png",
 			stock: 15,
 		},
+		{
+			id: 6,
+			title: "Producto 6",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus lacinia velit. Aliquam at purus mollis nisi porttitor dignissim. In tincidunt ligula in nibh aliquet placerat. Mauris feugiat nec tellus id fringilla. Cras mattis mauris non neque luctus, sed consectetur. ",
+			price: 300,
+			imageUrl: "https://radiogamasi.com/wp-content/uploads/2017/07/img_not_available.png",
+			stock: 5,
+		},
+		{
+			id: 7,
+			title: "Producto 7",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus lacinia velit. Aliquam at purus mollis nisi porttitor dignissim. In tincidunt ligula in nibh aliquet placerat. Mauris feugiat nec tellus id fringilla. Cras mattis mauris non neque luctus, sed consectetur. ",
+			price: 3000,
+			imageUrl: "https://radiogamasi.com/wp-content/uploads/2017/07/img_not_available.png",
+			stock: 70,
+		},
+		{
+			id: 8,
+			title: "Producto 8",
+			description:
+				"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus lacinia velit. Aliquam at purus mollis nisi porttitor dignissim. In tincidunt ligula in nibh aliquet placerat. Mauris feugiat nec tellus id fringilla. Cras mattis mauris non neque luctus, sed consectetur. ",
+			price: 35000,
+			imageUrl: "https://radiogamasi.com/wp-content/uploads/2017/07/img_not_available.png",
+			stock: 18,
+		},
 	];
 
 	const [productos, setProductos] = useState([]);
@@ -75,21 +100,19 @@ const ItemListContainer = ({ saludo }) => {
 		});
 	}, []);
 
-	return (
+	return (		
 		<>
-			<Alert variant="light" className="mt-5 text-center">
-				<Row>
-					<Alert.Heading>{saludo}</Alert.Heading>
-					<hr />
-				</Row>
-				<Row>
-					<ItemCount stock={availableStock} />
-				</Row>
-				<Row>
-					<ItemList productos={productos} />
-				</Row>
-			</Alert>
-			<ItemList />
+			<main style={ styleBg }>
+				<Container>
+					<Row>
+				    	<h1 className="text-center text-uppercase py-5 fw-bold"> Mi centro de Luz </h1>  
+					</Row>
+					<Row>
+						<h2 className="fw-light m-0">Ofertas</h2>
+						<ItemList productos={productos} />
+					</Row>
+				</Container>
+			</main>			
 		</>
 	);
 };
