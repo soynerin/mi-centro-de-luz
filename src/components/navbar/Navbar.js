@@ -69,8 +69,8 @@ const Navbar = () => {
 								to="category/2"
 								style={dropdownLinkStyle}>Lociones áuricas</Link>
 							<Link 
-							to="category/3"
-							style={dropdownLinkStyle}>Orgones</Link>
+								to="category/3"
+								style={dropdownLinkStyle}>Orgones</Link>
 						</NavDropdown>
 					</Nav>
 					<CartWidget />

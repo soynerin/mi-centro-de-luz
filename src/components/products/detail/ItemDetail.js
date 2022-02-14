@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import ItemCount from '../../widgets/ItemCount'
 
 const ItemDetail = ({ producto }) => {
+
+	const [productQauntityCart, setProductQauntityCart] = useState(0)
+
 	const formatNumber = (amount) => {
 		const numberFormat = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" });
 
 		return numberFormat.format(amount);
 	};
+
+	const onAdd = (quantityToAdd) => {
+		setProductQauntityCart(quantityToAdd);
+
+		alert("Producto agregado al carrito")
+	}
 
 	return (
 		<div className="p-5" style={{ backgroundColor: "#F3F2FC" }}>
@@ -41,6 +51,11 @@ const ItemDetail = ({ producto }) => {
 						</Row>
 						<Row className="mt-4">
 							<p className="fw-lighter">{producto.description}</p>
+						</Row>
+						<Row>
+							<ItemCount 
+								stock={producto.stock} 
+								onAdd={onAdd} />
 						</Row>
 						<Row className="mt-4">
 							<button type="button" className="btn btn-outline-dark">
