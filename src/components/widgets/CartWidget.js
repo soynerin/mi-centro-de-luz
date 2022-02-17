@@ -1,19 +1,13 @@
 import { Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
 	return (
-
-			<Nav>
-				<Nav.Link href="#cart">
-					<img
-						src="../icons/cart.svg"
-						width="32"
-						height="32"
-						alt="carticon"
-					/>
-				</Nav.Link>
-			</Nav>
-
+		<Nav>
+			<Link to="/cart">
+				<img src="../icons/cart.svg" width="32" height="32" alt="carticon" />
+			</Link>
+		</Nav>
 	);
 };
 

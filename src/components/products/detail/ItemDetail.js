@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import ItemCount from '../../widgets/ItemCount'
+import React, { useContext, useState } from "react";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../../context/cart/CartContext";
+import ItemCount from "../../widgets/ItemCount";
 
 const ItemDetail = ({ producto }) => {
-
-	const [productQauntityCart, setProductQauntityCart] = useState(0)
+	const [productQauntityCart, setProductQauntityCart] = useState(0);
+	const { addItemToCart } = useContext(CartContext);
 
 	const formatNumber = (amount) => {
 		const numberFormat = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" });
@@ -14,9 +16,14 @@ const ItemDetail = ({ producto }) => {
 
 	const onAdd = (quantityToAdd) => {
 		setProductQauntityCart(quantityToAdd);
+	};
 
-		alert("Producto agregado al carrito")
-	}
+	const handleAddItemToCart = () => {
+		addItemToCart({
+			producto,
+			productQauntityCart,
+		});
+	};
 
 	return (
 		<div className="p-5" style={{ backgroundColor: "#F3F2FC" }}>
@@ -53,9 +60,15 @@ const ItemDetail = ({ producto }) => {
 							<p className="fw-lighter">{producto.description}</p>
 						</Row>
 						<Row>
-							<ItemCount 
-								stock={producto.stock} 
-								onAdd={onAdd} />
+							<ItemCount stock={producto.stock} onAdd={onAdd} />
+							<Link to="/cart">
+								<Button
+									variant={`success text-uppercase ${productQauntityCart > 0 ? "" : "d-none"}`}
+									onClick={handleAddItemToCart}
+								>
+									Finalizar compra
+								</Button>
+							</Link>
 						</Row>
 						<Row className="mt-4">
 							<button type="button" className="btn btn-outline-dark">

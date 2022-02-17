@@ -36,7 +36,7 @@ const ItemCount = ({ stock, onAdd }) => {
 						<i className="lni lni-plus" onClick={incrementQuantity}></i>
 					</Button>
 				</div>
-				<div className="d-flex justify-content-around mt-5">
+				<div className="mt-5">
 					<Button
 						variant={`dark text-uppercase ${quantity > 0 ? "" : "disabled"}`}
 						onClick={() => {
@@ -45,11 +45,6 @@ const ItemCount = ({ stock, onAdd }) => {
 					>
 						Agregar al carrito
 					</Button>
-					<Link to="/cart">
-						<Button variant={`success text-uppercase ${quantity > 0 ? "" : "disabled"}`}>
-							Finalizar compra
-						</Button>
-					</Link>
 				</div>
 			</Card.Body>
 		</Card>
