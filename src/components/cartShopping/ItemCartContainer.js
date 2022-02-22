@@ -7,8 +7,6 @@ import Cart from "./Cart";
 const ItemCartContainer = () => {
 	const { cartItems } = useContext(CartContext);
 
-	console.log(cartItems);
-
 	return (
 		<>
 			{cartItems.length > 0 ? (
