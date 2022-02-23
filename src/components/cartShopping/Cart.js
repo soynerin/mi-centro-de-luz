@@ -11,8 +11,11 @@ const Cart = ({ cartItems }) => {
 			<h1 className="text-uppercase fs-3 fw-light mb-5"> Carrito </h1>
 			<ol className="list-group">
 				{cartItems &&
-					cartItems.map((item) => (
-						<li className="list-group-item d-flex justify-content-between align-items-start shadow-sm p-3 mb-5 bg-body rounded">
+					cartItems.map((item, position) => (
+						<li
+							key={position}
+							className="list-group-item d-flex justify-content-between align-items-start shadow-sm p-3 mb-5 bg-body rounded"
+						>
 							<div className="ms-2 me-auto">
 								<div className="fw-bold mb-4">{item["producto"]["title"]}</div>
 								<div className="d-flex w-100 justify-content-between">

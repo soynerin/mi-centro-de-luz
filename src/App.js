@@ -14,8 +14,8 @@ const styleBg = {
 function App() {
 	return (
 		<>
-			<Navbar />
 			<CartProvider>
+				<Navbar />
 				<Routes>
 					<Route
 						path="/"

@@ -6,7 +6,7 @@ import ItemCount from "../../widgets/ItemCount";
 
 const ItemDetail = ({ producto }) => {
 	const [productQauntityCart, setProductQauntityCart] = useState(0);
-	const { addItemToCart } = useContext(CartContext);
+	const { addItemToCart, handleSetIsItemInCart } = useContext(CartContext);
 
 	const formatNumber = (amount) => {
 		const numberFormat = new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" });
@@ -23,6 +23,8 @@ const ItemDetail = ({ producto }) => {
 			producto,
 			productQauntityCart,
 		});
+
+		handleSetIsItemInCart();
 	};
 
 	return (
@@ -66,7 +68,7 @@ const ItemDetail = ({ producto }) => {
 									variant={`success text-uppercase ${productQauntityCart > 0 ? "" : "d-none"}`}
 									onClick={handleAddItemToCart}
 								>
-									Finalizar compra
+									Ir al Carrito
 								</Button>
 							</Link>
 						</Row>

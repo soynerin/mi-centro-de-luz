@@ -1,4 +1,3 @@
-import { Button } from "bootstrap";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../../context/cart/CartContext";

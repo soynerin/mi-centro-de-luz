@@ -4,6 +4,7 @@ export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
 	const [cartItems, setCartItems] = useState([]);
+	const [isItemInCart, setIsItemInCart] = useState(false);
 
 	const addItemToCart = (currentProduct) => {
 		if (cartItems.some((item) => item["producto"]["id"] === currentProduct["producto"]["id"])) {
@@ -17,10 +18,14 @@ export const CartProvider = ({ children }) => {
 
 	const clearCart = () => {};
 
-	const isItemInCart = () => {};
+	const handleSetIsItemInCart = () => {
+		setIsItemInCart(true);
+	};
 
 	return (
-		<CartContext.Provider value={{ cartItems, addItemToCart, removeItemOfCart, clearCart, isItemInCart }}>
+		<CartContext.Provider
+			value={{ cartItems, addItemToCart, removeItemOfCart, clearCart, handleSetIsItemInCart, isItemInCart }}
+		>
 			{children}
 		</CartContext.Provider>
 	);
