@@ -3,9 +3,9 @@ import { Row } from "react-bootstrap";
 
 const ItemList = ({ productos }) => {
 	return (
-		<Row xs={1} md={3} lg={4} className="g-4">
+		<Row xs={1} md={2} lg={3} xl={4} className="g-4">
 			{productos &&
-				productos.map((p) => (					
+				productos.map((p) => (
 					<Item
 						key={p.id}
 						id={p.id}

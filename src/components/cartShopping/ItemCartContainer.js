@@ -4,12 +4,12 @@ import { CartContext } from "../../context/cart/CartContext";
 import Cart from "./Cart";
 
 const ItemCartContainer = () => {
-	const { cartItems } = useContext(CartContext);
+	const { cartItems, removeItemOfCart } = useContext(CartContext);
 
 	return (
 		<>
 			{cartItems.length > 0 ? (
-				<Cart cartItems={cartItems} />
+				<Cart cartItems={cartItems} removeItemOfCart={removeItemOfCart} />
 			) : (
 				<div className="p-5 min-vh-100" style={{ backgroundColor: "#F3F2FC" }}>
 					<div className="alert alert-primary text-center fs-4" role="alert">

@@ -1,10 +1,15 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
-const Cart = ({ cartItems }) => {
+const Cart = ({ cartItems, removeItemOfCart }) => {
 	const totalPriceCart = cartItems.reduce(
 		(n, { producto, productQauntityCart }) => n + producto["price"] * productQauntityCart,
 		0
 	);
+
+	const handleRemovoItemOfCart = (itemId) => {
+		removeItemOfCart(itemId);
+	};
 
 	return (
 		<div className="p-5 min-vh-100" style={{ backgroundColor: "#F3F2FC" }}>
@@ -21,6 +26,14 @@ const Cart = ({ cartItems }) => {
 								<div className="d-flex w-100 justify-content-between">
 									<span className="w-75">{item["producto"]["description"]}</span>
 									<span className="w-25 fs-4 fw-bold">$ {item["producto"]["price"]}</span>
+								</div>
+								<div className="w-100 mt-4">
+									<Button
+										variant="danger"
+										onClick={() => handleRemovoItemOfCart(item["producto"]["id"])}
+									>
+										Eliminar
+									</Button>
 								</div>
 							</div>
 							<span className="badge bg-primary rounded-pill fs-6">{item["productQauntityCart"]}</span>
