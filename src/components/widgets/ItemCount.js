@@ -3,7 +3,7 @@ import { Card, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const ItemCount = ({ stock, onAdd }) => {
-	const [quantity, setQuantity] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 	const [messageInfo, setMessageInfo] = useState("");
 
 	const incrementQuantity = () => {
@@ -19,7 +19,7 @@ const ItemCount = ({ stock, onAdd }) => {
 	const decrementQuantity = () => {
 		setMessageInfo("");
 
-		if (quantity <= 0) return;
+		if (quantity <= 1) return;
 
 		setQuantity(quantity - 1);
 	};

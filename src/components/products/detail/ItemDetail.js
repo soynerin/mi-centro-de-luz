@@ -40,12 +40,6 @@ const ItemDetail = ({ producto }) => {
 							loading="lazy"
 							alt={producto.title}
 						/>
-						<br />
-						<img
-							src={producto.imageUrl}
-							className="img-thumbnail rounded mx-auto d-block"
-							alt={producto.title}
-						/>
 					</Col>
 					<Col sm={4} lg={6}>
 						<Row>
