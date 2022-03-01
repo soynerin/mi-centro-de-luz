@@ -9,7 +9,9 @@ const ItemCartContainer = () => {
 	return (
 		<>
 			{cartItems.length > 0 ? (
-				<Cart cartItems={cartItems} removeItemOfCart={removeItemOfCart} />
+				<>
+					<Cart cartItems={cartItems} removeItemOfCart={removeItemOfCart} />
+				</>
 			) : (
 				<div className="p-5 min-vh-100" style={{ backgroundColor: "#F3F2FC" }}>
 					<div className="alert alert-primary text-center fs-4" role="alert">

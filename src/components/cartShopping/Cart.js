@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
+import { CartContext } from "../../context/cart/CartContext";
+import Checkout from "../checkout/Checkout";
 
 const Cart = ({ cartItems, removeItemOfCart }) => {
-	const totalPriceCart = cartItems.reduce(
-		(n, { producto, productQauntityCart }) => n + producto["price"] * productQauntityCart,
-		0
-	);
+	const { getTotalPriceCart } = useContext(CartContext);
 
 	const handleRemovoItemOfCart = (itemId) => {
 		removeItemOfCart(itemId);
@@ -45,9 +44,11 @@ const Cart = ({ cartItems, removeItemOfCart }) => {
 
 			<div className="d-flex flex-row-reverse">
 				<p className="text-uppercase fs-4 fw-bold pe-5">
-					Total <span className="ps-5">$ {totalPriceCart}</span>{" "}
+					Total <span className="ps-5">$ {getTotalPriceCart()}</span>{" "}
 				</p>
 			</div>
+
+			<Checkout />
 		</div>
 	);
 };
