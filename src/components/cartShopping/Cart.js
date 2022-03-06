@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import { CartContext } from "../../context/cart/CartContext";
-import Checkout from "../checkout/Checkout";
+import CheckoutContainer from "../checkout/CheckoutContainer";
 
 const Cart = ({ cartItems, removeItemOfCart }) => {
 	const { getTotalPriceCart } = useContext(CartContext);
 
-	const handleRemovoItemOfCart = (itemId) => {
+	const handleRemoveItemOfCart = (itemId) => {
 		removeItemOfCart(itemId);
 	};
 
 	return (
-		<div className="p-5 min-vh-100" style={{ backgroundColor: "#F3F2FC" }}>
+		<div className="p-5 min-vh-100">
 			<h1 className="text-uppercase fs-3 fw-light mb-5"> Carrito </h1>
 			<ol className="list-group">
 				{cartItems &&
@@ -29,7 +29,7 @@ const Cart = ({ cartItems, removeItemOfCart }) => {
 								<div className="w-100 mt-4">
 									<Button
 										variant="danger"
-										onClick={() => handleRemovoItemOfCart(item["producto"]["id"])}
+										onClick={() => handleRemoveItemOfCart(item["producto"]["id"])}
 									>
 										Eliminar
 									</Button>
@@ -48,7 +48,7 @@ const Cart = ({ cartItems, removeItemOfCart }) => {
 				</p>
 			</div>
 
-			<Checkout />
+			<CheckoutContainer />
 		</div>
 	);
 };

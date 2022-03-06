@@ -4,7 +4,7 @@ import SpinnerLoader from "../../widgets/SpinnerLoader";
 import ItemDetail from "./ItemDetail";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ styleBg }) => {
 	const { id } = useParams();
 	const [producto, setProducto] = useState({});
 	const [isLoading, setIsLoading] = useState(true);
@@ -22,9 +22,9 @@ const ItemDetailContainer = () => {
 			.finally(() => {
 				setIsLoading(false);
 			});
-	}, []);
+	}, [id]);
 
-	return <> {isLoading ? <SpinnerLoader /> : <ItemDetail producto={producto} />} </>;
+	return <div style={styleBg}>{isLoading ? <SpinnerLoader /> : <ItemDetail producto={producto} />}</div>;
 };
 
 export default ItemDetailContainer;

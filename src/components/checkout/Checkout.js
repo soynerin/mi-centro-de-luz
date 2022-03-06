@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import { Button, Col, Container, Form, ListGroup, Row, Table } from "react-bootstrap";
+import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
 import { CartContext } from "../../context/cart/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import SpinnerLoader from "../widgets/SpinnerLoader";
 
-const Checkout = () => {
+const Checkout = ({ formControls }) => {
 	const [buyer, setBuyer] = useState({
 		name: "",
 		phone: "",
@@ -44,12 +44,10 @@ const Checkout = () => {
 	return (
 		<>
 			{orderId && (
-				<>
-					<div className="alert alert-success alert-dismissible fade show mt-5" role="alert">
-						<strong>Orden generada exitosamente!!</strong> Se genero la orden con ID: {orderId}
-						<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-					</div>
-				</>
+				<div className="alert alert-success alert-dismissible fade show mt-5" role="alert">
+					<strong>Orden generada exitosamente!!</strong> Se genero la orden con ID: {orderId}
+					<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+				</div>
 			)}
 
 			{isLoading && <SpinnerLoader />}
@@ -64,38 +62,22 @@ const Checkout = () => {
 
 					<Container>
 						<Form.Group className="mb-3" controlId="formBasicEmail">
-							<Form.Label>Name</Form.Label>
-							<Form.Control
-								type="text"
-								placeholder="Name"
-								value={buyer.name}
-								name="name"
-								onChange={(e) => {
-									setBuyer({ ...buyer, name: e.target.value });
-								}}
-							/>
-
-							<Form.Label>Phone</Form.Label>
-							<Form.Control
-								type="number"
-								placeholder="Phone Number"
-								value={buyer.phone}
-								name="phone"
-								onChange={(e) => {
-									setBuyer({ ...buyer, phone: e.target.value });
-								}}
-							/>
-
-							<Form.Label>Email</Form.Label>
-							<Form.Control
-								type="email"
-								placeholder="Email"
-								value={buyer.email}
-								name="email"
-								onChange={(e) => {
-									setBuyer({ ...buyer, email: e.target.value });
-								}}
-							/>
+							{formControls.map(({ label, name, type, placeholder }, index) => {
+								return (
+									<div key={index}>
+										<Form.Label>{label}</Form.Label>
+										<Form.Control
+											type={type}
+											value={buyer[name]}
+											name={name}
+											placeholder={placeholder}
+											onChange={(e) => {
+												setBuyer({ ...buyer, [e.target.name]: e.target.value });
+											}}
+										/>
+									</div>
+								);
+							})}
 						</Form.Group>
 					</Container>
 				</Col>
@@ -116,9 +98,9 @@ const Checkout = () => {
 									</tr>
 								</thead>
 								<tbody>
-									{cartItems.map(({ producto, productQauntityCart }) => {
+									{cartItems.map(({ producto, productQauntityCart }, index) => {
 										return (
-											<tr>
+											<tr key={index}>
 												<td>$ {producto.title}</td>
 												<td>$ {producto.price * productQauntityCart}</td>
 											</tr>

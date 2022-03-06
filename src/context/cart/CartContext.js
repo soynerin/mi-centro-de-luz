@@ -20,7 +20,9 @@ export const CartProvider = ({ children }) => {
 		setCartItems(itemsfiltered);
 	};
 
-	const clearCart = () => {};
+	const clearCart = () => {
+		setCartItems([]);
+	};
 
 	const handleSetIsItemInCart = () => {
 		setIsItemInCart(true);

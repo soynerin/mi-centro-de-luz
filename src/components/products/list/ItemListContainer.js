@@ -57,20 +57,18 @@ const ItemListContainer = ({ headerTitle, styleBg }) => {
 	}, [id]);
 
 	return (
-		<>
-			<main style={styleBg}>
-				<Container>
-					<Row>
-						<h1 className="text-center text-uppercase py-5 fw-bold"> Mi centro de Luz </h1>
-					</Row>
-					<Row>
-						<h2 className="text-uppercase fs-3 fw-light m-0">{headerTitle}</h2>{" "}
-						<span className="fs-3 fw-normal m-0">{getCategoryDescription()}</span>
-						{isLoading ? <SpinnerLoader /> : <ItemList productos={products} />}
-					</Row>
-				</Container>
-			</main>
-		</>
+		<main style={styleBg}>
+			<Container>
+				<Row>
+					<h1 className="text-center text-uppercase py-5 fw-bold"> Mi centro de Luz </h1>
+				</Row>
+				<Row>
+					<h2 className="text-uppercase fs-3 fw-light m-0">{headerTitle}</h2>{" "}
+					<span className="fs-3 fw-normal m-0">{getCategoryDescription()}</span>
+					{isLoading ? <SpinnerLoader /> : <ItemList productos={products} />}
+				</Row>
+			</Container>
+		</main>
 	);
 };
 

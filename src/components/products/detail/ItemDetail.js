@@ -28,7 +28,7 @@ const ItemDetail = ({ producto }) => {
 	};
 
 	return (
-		<div className="p-5" style={{ backgroundColor: "#F3F2FC" }}>
+		<div className="p-5">
 			<Container className="col-xxl-8 px-4 py-5">
 				<Row className="flex-lg-row-reverse align-items-center g-5 py-5">
 					<Col sm={8} lg={6}>
