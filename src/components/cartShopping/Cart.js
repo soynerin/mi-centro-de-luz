@@ -35,7 +35,9 @@ const Cart = ({ cartItems, removeItemOfCart }) => {
 									</Button>
 								</div>
 							</div>
-							<span className="badge bg-primary rounded-pill fs-6">{item["productQauntityCart"]}</span>
+							<span className="badge bg-primary rounded-pill fs-6">
+								Cantidad {item["productQauntityCart"]}
+							</span>
 						</li>
 					))}
 			</ol>
@@ -44,7 +46,7 @@ const Cart = ({ cartItems, removeItemOfCart }) => {
 
 			<div className="d-flex flex-row-reverse">
 				<p className="text-uppercase fs-4 fw-bold pe-5">
-					Total <span className="ps-5">$ {getTotalPriceCart()}</span>{" "}
+					Total ARS <span className="ps-5">$ {getTotalPriceCart()}</span>{" "}
 				</p>
 			</div>
 

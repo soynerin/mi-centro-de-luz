@@ -3,6 +3,7 @@ import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
 import { CartContext } from "../../context/cart/CartContext";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import SpinnerLoader from "../widgets/SpinnerLoader";
+import { Link } from "react-router-dom";
 
 const Checkout = ({ formControls }) => {
 	const [buyer, setBuyer] = useState({
@@ -15,7 +16,7 @@ const Checkout = ({ formControls }) => {
 
 	const [isLoading, setIsLoading] = useState(false);
 
-	const { cartItems, getTotalPriceCart } = useContext(CartContext);
+	const { cartItems, getTotalPriceCart, clearCart } = useContext(CartContext);
 
 	const sendOrder = () => {
 		setIsLoading(true);
@@ -47,6 +48,19 @@ const Checkout = ({ formControls }) => {
 				<div className="alert alert-success alert-dismissible fade show mt-5" role="alert">
 					<strong>Orden generada exitosamente!!</strong> Se genero la orden con ID: {orderId}
 					<button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+					<hr></hr>
+					<div className="d-flex flex-row-reverse bd-highligh">
+						<Link to="/">
+							<Button
+								variant="secondary"
+								onClick={() => {
+									clearCart();
+								}}
+							>
+								Ir al Inicio
+							</Button>{" "}
+						</Link>
+					</div>
 				</div>
 			)}
 
