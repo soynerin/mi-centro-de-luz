@@ -22,8 +22,8 @@ const Navbar = () => {
 		textDecoration: "none",
 		display: "block",
 		color: "rgba(0,0,0,.55)",
-		transition: "color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out",		
-	}
+		transition: "color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out",
+	};
 
 	const dropdownLinkStyle = {
 		display: "block",
@@ -36,8 +36,8 @@ const Navbar = () => {
 		textDecoration: "none",
 		whiteSpace: "nowrap",
 		backgroundColor: "transparent",
-		border: "0",		
-	}
+		border: "0",
+	};
 
 	return (
 		<BTNavbar bg="light" expand="lg">
@@ -56,21 +56,19 @@ const Navbar = () => {
 				<BTNavbar.Toggle aria-controls="basic-navbar-nav" />
 				<BTNavbar.Collapse id="basic-navbar-nav">
 					<Nav className="me-auto">
-						<Link 
-							to="/" 
-							style={navLinkStyle}>
+						<Link to="/" style={navLinkStyle}>
 							Inicio
 						</Link>
 						<NavDropdown title="Categorias" id="basic-nav-dropdown" style={dropdownStyle}>
-							<Link 
-								to="category/1"
-								style={dropdownLinkStyle}>Sahumerios</Link>
-							<Link 
-								to="category/2"
-								style={dropdownLinkStyle}>Lociones áuricas</Link>
-							<Link 
-							to="category/3"
-							style={dropdownLinkStyle}>Orgones</Link>
+							<Link to="category/1" style={dropdownLinkStyle}>
+								Sahumerios
+							</Link>
+							<Link to="category/2" style={dropdownLinkStyle}>
+								Lociones áuricas
+							</Link>
+							<Link to="category/3" style={dropdownLinkStyle}>
+								Orgones
+							</Link>
 						</NavDropdown>
 					</Nav>
 					<CartWidget />
